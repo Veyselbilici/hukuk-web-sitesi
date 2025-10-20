@@ -258,35 +258,108 @@ ul {
 }
 
 
-/* --- HAKKIMIZDA.HTML SAYFASINA ÖZEL STİLLER --- */
 
-/* Sayfanın üstündeki başlık alanı (Ana Sayfa'daki Hero gibi değil) */
+
+/* --- HAKKIMIZDA.HTML SAYFASINA ÖZEL STİLLER (GÜNCELLENDİ) --- */
+
+/* 1. Sayfa Başlığı (Bu kural zaten vardı, ama burada olması daha düzenli) */
 .page-header {
     background-color: #333;
     color: #fff;
-    padding: 120px 5% 60px 5%; /* Üst padding, menünün (70px) altında kalmaması için yüksek */
+    padding: 120px 5% 60px 5%;
     text-align: center;
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg'); /* Ana sayfa resmini karartarak kullanır */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg');
     background-size: cover;
     background-position: center;
 }
-
 .page-header h1 {
     font-size: 3rem;
     font-weight: 700;
 }
-
 .page-header p {
     font-size: 1.1rem;
-    color: #c5a47e; /* Vurgu rengi */
+    color: #c5a47e;
 }
 
-/* Hakkımızda sayfasındaki .content-section'a ekstra boşluk vermeyelim */
+/* 2. Sayfanın İçerik Alanı (Arka planı gri yap) */
 #hakkimizda-detay.content-section {
-    padding-top: 80px; /* Sadece üstten boşluk */
+    background-color: #f9f9f9; /* Açık gri arka plan */
+    padding: 80px 5%;
+    text-align: left; /* Üsteki .content-section'dan gelen ortalamayı iptal et */
 }
 
-/* Misyon / Vizyon kutuları */
+/* 3. Ana İçerik Bloğu (Beyaz Kart Haline Getir) */
+.hakkimizda-layout {
+    display: flex; /* İki sütunlu yapı için */
+    align-items: center; 
+    gap: 50px;
+    
+    /* YENİ EKLENEN KART STİLLERİ */
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* 4. Sol Sütun (Metin) */
+.hakkimizda-text {
+    flex: 2; /* Metin alanı resimden daha fazla yer kaplasın */
+}
+.hakkimizda-text h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+.hakkimizda-text p {
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* 5. Liste Stilleri */
+.hakkimizda-list {
+    list-style: none;
+    margin: 25px 0;
+    padding: 0;
+}
+.hakkimizda-list li {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+.hakkimizda-list .icon-check {
+    color: #c5a47e; /* Ana vurgu rengimiz */
+    font-weight: 900;
+    font-size: 1.2rem;
+    margin-right: 12px;
+}
+
+/* 6. Sağ Sütun (Resim) */
+.hakkimizda-image {
+    flex: 1; 
+    text-align: center;
+}
+.hakkimizda-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    
+    /* Resim bulana kadar geçici yer tutucu stili */
+    background-color: #e0e0e0;
+    min-height: 350px;
+    display: block;
+    border: 1px solid #ccc;
+    /* Geçici yazı (Bunu gizleyebiliriz) */
+    color: #e0e0e0; /* Yazıyı gizle */
+    font-size: 0.1px;
+}
+
+/* 7. Misyon/Vizyon Kutuları (Bunlar kartın dışında, gri zeminde) */
 .extra-info {
     display: flex;
     gap: 30px;
@@ -294,32 +367,42 @@ ul {
     border-top: 1px solid #eee;
     padding-top: 50px;
 }
-
 .info-box {
-    flex: 1; /* Eşit yer kaplasınlar */
-    background-color: #f9f9f9;
+    flex: 1;
+    background-color: #fff; /* Misyon/Vizyon da beyaz kart olsun */
     padding: 30px;
     border-radius: 8px;
     text-align: left;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
-
 .info-box h4 {
     font-size: 1.5rem;
     color: #c5a47e;
     margin-bottom: 15px;
 }
-
 .info-box p {
     color: #555;
     line-height: 1.7;
 }
 
-/* Mobil uyumluluk: Misyon/Vizyon kutuları alt alta gelsin */
+/* --- MOBİL UYUMLULUK (Hakkımızda için) --- */
 @media (max-width: 768px) {
+    .hakkimizda-layout {
+        flex-direction: column; /* Sütunları alt alta diz */
+        padding: 30px;
+    }
+    .hakkimizda-image {
+        margin-top: 30px;
+        order: -1; /* Resmi metnin üstüne al */
+        width: 80%; 
+        margin-left: auto;
+        margin-right: auto;
+    }
     .extra-info {
         flex-direction: column; /* Alt alta diz */
     }
 }
+
 
 
 
