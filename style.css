@@ -1,0 +1,959 @@
+/* --- TEMEL AYARLAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- 1. NAVBAR (Header) --- */
+.navbar {
+    background-color: rgba(20, 20, 20, 0.9); /* Yarı şeffaf koyu arka plan */
+    color: #fff;
+    position: fixed; /* Sayfa kaysa bile üstte kalır */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo a {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #fff;
+}
+
+.logo strong {
+    font-weight: 700;
+}
+
+.nav-menu ul {
+    display: flex;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-menu a {
+    color: #f1f1f1;
+    font-weight: 600;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Örnekteki gibi altın/kahve rengi vurgu */
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #c5a47e; /* Altın/Kahve rengi */
+    border-bottom-color: #c5a47e;
+}
+
+/* Sağdaki CTA (Call to Action) Butonu */
+.cta-button {
+    background-color: #c5a47e;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #b38f66;
+}
+
+/* --- 2. HERO (Ana Karşılama) --- */
+.hero {
+    height: 100vh; /* Ekranı kaplar */
+    background-image: url('HukRes1.jpg'); /* BU RESMİ BULUP PROJE KLASÖRÜNE EKLEMELİSİNİZ */
+    background-size: cover;
+    background-position: center;
+    background-color: #333; /* Resim yüklenmezse diye */
+    color: #fff;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Resmin üstüne koyu filtre */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h4 {
+    font-size: 1.2rem;
+    color: #c5a47e; /* Vurgu rengi */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* Hero içindeki "Hakkımızda" butonu */
+.cta-button-secondary {
+    background-color: #b9936c; /* Ana butondan biraz farklı bir ton */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button-secondary:hover {
+    background-color: #a37f5b;
+}
+
+/* --- 3. & 4. GENEL İÇERİK ve KONTEYNER --- */
+.content-section {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.bg-light {
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px; /* İçeriğin genişliğini sınırlar */
+    margin: 0 auto; /* Sayfada ortalar */
+    padding: 0 20px;
+}
+
+.content-section h2 {
+    font-size: 2.5rem; /* Başlığı büyütüyoruz */
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 50px; /* Kartlarla arasında boşluk */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- 4. HİZMETLER BÖLÜMÜ (İkon Stili Güncellendi) --- */
+.hizmetler-grid {
+    display: grid;
+    /* Ekran genişliğine göre kartları otomatik sığdırır */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Kartlar arası boşluk */
+    /* Hizalama artık .hizmet-kart içinden yapılacak */
+}
+
+.hizmet-kart {
+    background-color: #fff;
+    padding: 35px 30px;
+    border-radius: 8px;
+    /* Örnek sitedeki gibi yumuşak bir gölge */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    /* Üzerine gelince animasyon */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* İkonları ve metinleri ortalamak için eklendi */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hizmet-kart:hover {
+    transform: translateY(-10px); /* Hafifçe yukarı kalkar */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* YENİ EKLENEN İKONLARIN STİLİ */
+.hizmet-kart .icon-hizmet {
+    font-size: 3.5rem; /* İkonların boyutu */
+    color: #c5a47e; /* Ana vurgu rengimiz (altın) */
+    margin-bottom: 25px; /* İkonla başlık arası boşluk */
+    transition: transform 0.3s ease;
+}
+
+/* Kartın üzerine gelince ikon hafifçe büyüsün */
+.hizmet-kart:hover .icon-hizmet {
+    transform: scale(1.1);
+}
+
+
+/* Başlık, paragraf ve link stilleri aynı kalıyor */
+.hizmet-kart h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.hizmet-kart p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.hizmet-kart .kart-link {
+    font-weight: 700;
+    color: #c5a47e; /* Vurgu rengi */
+    transition: color 0.3s ease;
+    margin-top: auto; /* Linkin her zaman kartın en altında olmasını sağlar */
+}
+
+.hizmet-kart .kart-link:hover {
+    color: #a37f5b;
+}
+
+
+/* --- HAKKIMIZDA.HTML SAYFASINA ÖZEL STİLLER --- */
+
+/* Sayfanın üstündeki başlık alanı (Ana Sayfa'daki Hero gibi değil) */
+.page-header {
+    background-color: #333;
+    color: #fff;
+    padding: 120px 5% 60px 5%; /* Üst padding, menünün (70px) altında kalmaması için yüksek */
+    text-align: center;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg'); /* Ana sayfa resmini karartarak kullanır */
+    background-size: cover;
+    background-position: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #c5a47e; /* Vurgu rengi */
+}
+
+/* Hakkımızda sayfasındaki .content-section'a ekstra boşluk vermeyelim */
+#hakkimizda-detay.content-section {
+    padding-top: 80px; /* Sadece üstten boşluk */
+}
+
+/* Misyon / Vizyon kutuları */
+.extra-info {
+    display: flex;
+    gap: 30px;
+    margin-top: 60px;
+    border-top: 1px solid #eee;
+    padding-top: 50px;
+}
+
+.info-box {
+    flex: 1; /* Eşit yer kaplasınlar */
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.info-box h4 {
+    font-size: 1.5rem;
+    color: #c5a47e;
+    margin-bottom: 15px;
+}
+
+.info-box p {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Mobil uyumluluk: Misyon/Vizyon kutuları alt alta gelsin */
+@media (max-width: 768px) {
+    .extra-info {
+        flex-direction: column; /* Alt alta diz */
+    }
+}
+
+
+
+/* --- 5. MÜVEKKİL YORUMLARI (GÜNCELLENDİ) --- */
+
+#yorumlar {
+background-color: #f9f9f9; /* Hafif gri, temiz arka plan */
+}
+
+/* YENİ EKLENEN GRID YAPISI */
+.yorum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Kartlar arası boşluk */
+}
+
+/* ESKİ 'yorum-placeholder' YENİ 'yorum-kart' OLDU */
+.yorum-kart {
+    padding: 30px 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-left: 5px solid #c5a47e; /* Sol kenardaki altın çizgi */
+    text-align: left;
+    
+    /* Kartların aynı yükseklikte olmasını sağlar */
+    display: flex;
+    flex-direction: column;
+}
+
+.yorum-kart p {
+    font-size: 1.1rem;
+    font-style: italic; /* İtalik yorum metni */
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 35px;
+    
+    /* Metnin kart içinde kalan boşluğu doldurmasını sağlar */
+    flex-grow: 1; 
+}
+
+/* Tırnak işareti efekti (Aynı kaldı) */
+.yorum-kart p::before {
+    content: '“'; 
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 3rem;
+    color: #c5a47e;
+    font-family: Georgia, serif;
+}
+
+.yorum-kart strong {
+    font-style: normal;
+    font-weight: 700;
+    color: #222;
+    padding-left: 35px;
+}
+
+
+
+/* --- 6. BLOG / SON YAZILAR --- */
+
+
+.blog-grid-placeholder {
+    display: grid;
+    /* Şimdilik 2 sütunlu bir taslak yapalım, daha sonra bunu geliştirebiliriz */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.blog-kart-placeholder {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    padding: 30px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-kart-placeholder:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.blog-kart-placeholder h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.blog-kart-placeholder p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+/* .kart-link stili zaten .hizmet-kart'tan geliyor ve burada da çalışacak. */
+
+
+/* --- 7. İLETİŞİM ÇAĞRISI BANNER'I --- */
+.cta-banner {
+    padding: 80px 5%;
+    text-align: center;
+    color: #fff;
+    /* Arka plana resim ve koyu filtre */
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('HukRes1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax efekti */
+}
+
+.cta-banner h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.cta-banner p {
+    font-size: 1.1rem;
+    color: #f1f1f1;
+    max-width: 600px;
+    margin: 0 auto 30px auto; /* Üst/alt 0, sağ/sol auto, alt 30px */
+}
+
+/* .cta-button stili zaten tanımlı (altın rengi) ve burada harika görünecek */
+
+
+/* --- 8. GELİŞMİŞ FOOTER (ESKİ .footer'I SİLİN) --- */
+.footer-gelismis {
+    background-color: #222;
+    color: #aaa;
+    padding-top: 80px; /* Alttaki bar için padding'i alta vermiyoruz */
+}
+
+.footer-grid {
+    display: grid;
+    /* Geniş ekranda 3 sütunlu, mobilde otomatik alt alta */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* Sütunlar arası boşluk */
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.footer-col .logo a {
+    color: #fff; /* Footer'da logo beyaz görünsün */
+    font-size: 1.3rem;
+}
+
+.footer-hakkinda {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Başlıkların altına vurgu çizgisi */
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #c5a47e; /* Ana vurgu rengimiz */
+}
+
+.footer-links,
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li,
+.footer-contact li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #aaa;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #c5a47e; /* Vurgu rengi */
+    padding-left: 5px; /* Hafif içeri kayma efekti */
+}
+
+.footer-contact li {
+    position: relative;
+    padding-left: 5px; /* İkonlar gelirse diye boşluk */
+    font-size: 0.95rem;
+}
+
+.footer-contact strong {
+    color: #ccc;
+    margin-right: 5px;
+}
+
+/* Footer'ın en altındaki telif hakkı barı */
+.footer-bottom-bar {
+    background-color: #1a1a1a;
+    padding: 20px 5%;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+}
+/* --- AÇILIR MENÜ (DROPDOWN) STİLLERİ (GÜNCELLENDİ - KOYU TEMA) --- */
+
+/* Menüdeki 'Hizmetlerimiz' yazısının yanındaki ok ikonu (Değişmedi) */
+.nav-menu .dropdown-icon {
+    font-size: 0.7rem;
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.nav-item-dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* AÇILIR MENÜNÜN KUTUSU (KOYU TEMA) */
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    
+    /* YENİ RENKLER */
+    background-color: #222; /* Koyu arka plan (navbar gibi) */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Navbar ile uyumlu ince sınır */
+    border-top: none; /* Navbar'a bitişik olduğu için üst sınırı kaldır */
+    
+    min-width: 240px;
+    z-index: 1001;
+    border-radius: 0 0 5px 5px; /* Alt köşeler yuvarlak kalsın */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Daha koyu bir gölge */
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.nav-item-dropdown {
+    position: relative;
+}
+
+/* Hover durumları (Değişmedi) */
+.nav-item-dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+/* MENÜ İÇİNDEKİ LİNKLER (KOYU TEMA) */
+.dropdown-menu li a {
+    /* YENİ RENKLER */
+    color: #f1f1f1; /* Açık renk yazı */
+    
+    font-weight: 500;
+    padding: 12px 20px;
+    display: block; 
+    white-space: nowrap; 
+    border-bottom: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* MENÜ LİNKLERİNİN HOVER (ÜZERİNE GELME) DURUMU */
+.dropdown-menu li a:hover {
+    /* YENİ RENKLER */
+    background-color: #c5a47e; /* Vurgu rengi (altın) arka plan */
+    color: #222; /* Üzerine koyu renk yazı */
+    border-bottom: none;
+}
+
+/* Aktif sayfa linkinin stilini koru (Değişmedi) */
+.nav-menu li.active > a {
+    color: #c5a47e;
+    border-bottom-color: #c5a47e;
+}
+
+
+/* --- HIZMETLERIMIZ.HTML SAYFA İÇERİĞİ (GÜNCEL KOYU TEMA) --- */
+/* (Bu kodlar hizmetlerimiz.html sayfasının görünümünü sağlar) */
+
+#hizmetler-detay-sayfasi {
+    /* Arka plan resmi (filtresiz) ve yazım hatası düzeltildi */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('HukRes2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax efekti */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+#hizmetler-detay-sayfasi .container {
+    max-width: 900px;
+    text-align: left;
+}
+
+/* Metin blokları (Şeffaf) */
+.hizmet-detay-blok {
+    background-color: transparent; /* Arka plan şeffaf */
+    box-shadow: none; 
+    border-radius: 0;
+    padding: 0; 
+    margin-bottom: 60px; 
+    padding-bottom: 40px; 
+    /* Ayırıcı çizgi (açık renk) */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+.hizmet-detay-blok:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* YAZILARI AÇIK RENK ve OKUNAKLI YAPIYORUZ (SON ÇÖZÜM) */
+
+/* Başlıklar (Tam Beyaz + Koyu Gölge) */
+.hizmet-detay-blok h2 {
+    font-size: 2.3rem; /* Bir tık büyütüyoruz */
+    font-weight: 700;
+    color: #c5a47e;
+    margin-bottom: 20px;
+    
+    /* Koyu Arka Plan Gölgesi: Metni arka plandan ayırır */
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Metinler (Açık Gri + Koyu Gölge) */
+.hizmet-detay-blok p {
+    font-size: 1.1rem; /* Bir tık büyütüyoruz */
+    color: #f1f1f1; /* Neredeyse beyaz */
+    font-weight: 500; /* Yazıyı normale göre daha tok (medium) yapıyoruz */
+    line-height: 1.8;
+    margin-bottom: 15px;
+    
+    /* Koyu Arka Plan Gölgesi */
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Vurgulu metinler (Tam Beyaz + Koyu Gölge) */
+.hizmet-detay-blok p strong {
+    color: #fff; /* Tam beyaz */
+    font-weight: 700;
+    
+    /* Koyu Arka Plan Gölgesi */
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 1);
+}
+
+/* --- BLOG.HTML SAYFASINA ÖZEL STİLLER --- */
+
+#blog-listesi {
+    padding-top: 60px;
+    padding-bottom: 80px;
+    background-color: #f9f9f9; /* Hafif bir gri arka plan */
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 300px genişliğinde kartlar, otomatik sığdır */
+    gap: 30px; /* Kartlar arası boşluk */
+    margin-bottom: 50px;
+}
+
+.blog-card {
+    background-color: #fff; /* Beyaz kart arka planı */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Yumuşak gölge */
+    overflow: hidden; /* Resmin köşeleri yuvarlak olsun */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* İçerik ve resmin düzeni için */
+    flex-direction: column; /* Dikey olarak sırala */
+}
+
+.blog-card:hover {
+    transform: translateY(-5px); /* Hafifçe yukarı kalkma efekti */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); /* Gölgelenme artar */
+}
+
+.blog-card-img {
+    width: 100%;
+    height: 200px; /* Resim yüksekliği */
+    background-size: cover;
+    background-position: center;
+    border-bottom: 3px solid #c5a47e; /* Altın rengi ayırıcı çizgi */
+}
+
+.blog-card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* İçerik kalan alanı doldursun */
+}
+
+.blog-card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333; /* Koyu başlık */
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.blog-card-content .blog-date {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.blog-card-content .blog-date i {
+    margin-right: 5px;
+    color: #c5a47e; /* Takvim ikonu altın rengi */
+}
+
+.blog-card-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Özet metni de kalan alanı doldursun */
+}
+
+.blog-read-more {
+    display: inline-block;
+    color: #c5a47e; /* Altın rengi link */
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.blog-read-more:hover {
+    color: #a38562; /* Üzerine gelince biraz daha koyu altın */
+}
+
+.blog-read-more i {
+    margin-left: 8px;
+    transition: margin-left 0.2s ease;
+}
+
+.blog-read-more:hover i {
+    margin-left: 12px; /* Ok üzerine gelince hafifçe sağa kaysın */
+}
+
+/* Sayfalama (Pagination) Stilleri */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.page-link:hover {
+    background-color: #f0f0f0;
+    border-color: #c5a47e;
+    color: #c5a47e;
+}
+
+.page-link.active {
+    background-color: #c5a47e;
+    border-color: #c5a47e;
+    color: #fff;
+}
+
+.page-link.active:hover {
+    background-color: #a38562;
+    border-color: #a38562;
+}
+
+.page-link i {
+    margin-left: 5px;
+}
+
+
+/* --- ILETISIM.HTML SAYFASINA ÖZEL STİLLER --- */
+
+#contact-page {
+    padding: 80px 0;
+    background-color: #f9f9f9; /* Blog sayfası gibi açık renk */
+}
+
+.contact-layout {
+    display: grid;
+    /* Geniş ekranda: %60 Form, %40 Bilgiler */
+    grid-template-columns: 2fr 1fr; 
+    gap: 50px;
+}
+
+/* İletişim Formu Stilleri */
+.contact-form-wrapper {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form-wrapper h3,
+.contact-details-wrapper h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Tüm form elemanları */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif; /* Fontu koru */
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #c5a47e; /* Tıklanınca altın rengi */
+    outline: none; /* Mavi çerçeveyi kaldır */
+}
+
+/* "Formu Gönder" Butonu */
+.contact-form-wrapper .cta-button {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* İletişim Bilgileri Stilleri (Sağ Sütun) */
+.contact-info-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.contact-info-list li {
+    display: flex; /* İkon ve metni yan yana getir */
+    align-items: flex-start; /* Üstten hizala */
+    margin-bottom: 25px;
+}
+
+.contact-info-list i {
+    font-size: 1.5rem;
+    color: #c5a47e; /* Vurgu rengi ikonlar */
+    margin-right: 20px;
+    margin-top: 5px; /* Dikeyde ortalamak için */
+    min-width: 25px; /* İkonların hizalı durması için */
+    text-align: center;
+}
+
+.contact-info-list div {
+    flex: 1;
+}
+
+.contact-info-list strong {
+    font-size: 1.1rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-info-list p {
+    color: #666;
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* Harita Stili */
+.map-wrapper {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #ddd;
+}
+
+.map-wrapper iframe {
+    display: block; /* Altındaki gereksiz boşluğu kaldırır */
+}
+
+
+/* --- MOBİL UYUMLULUK (İletişim Sayfası) --- */
+@media (max-width: 900px) {
+    .contact-layout {
+        grid-template-columns: 1fr; /* Sütunları alt alta diz */
+    }
+    
+    .contact-details-wrapper {
+        /* Formun altında görünecek */
+        margin-top: 40px; 
+    }
+}

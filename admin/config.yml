@@ -1,0 +1,51 @@
+# 1. CANLI SİSTEM AYARLARI (Test modu bitti)
+backend:
+  name: git-gateway # Netlify'ın GitHub ile konuşmasını sağlar
+  branch: main # GitHub'daki ana dalınız (eğer 'master' ise onu yazın)
+
+# 2. MEDYA (Resim Yükleme) AYARLARI
+media_folder: "images/uploads" # Yüklenen resimler buraya kaydedilsin
+public_folder: "/images/uploads" # Sitede bu yoldan gösterilsin
+
+# 3. İÇERİK KOLEKSİYONLARI (Admin Panel Menüleri)
+collections:
+
+  # 3A: BLOG YAZILARI KOLEKSİYONU (Klasör)
+  # Savaş Bey'in YENİ yazı eklemesi için
+  - name: "blog"
+    label: "Blog Yazıları"
+    folder: "blog-posts" # Yazılar bu klasöre kaydedilsin
+    create: true # Yeni yazı oluşturma butonu aktif olsun
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime"}
+      - {label: "Kapak Fotoğrafı", name: "thumbnail", widget: "image"}
+      - {label: "Yazı İçeriği", name: "body", widget: "markdown"}
+
+  # 3B: SAYFA AYARLARI KOLEKSİYONU (Tek Dosyalar)
+  # Savaş Bey'in MEVCUT sayfaları güncellemesi için
+  - name: "sayfalar"
+    label: "Sayfa Ayarları"
+    # Bu bir klasör değil, tek tek dosyaları düzenleme menüsüdür
+    files:
+      
+      # İletişim Bilgileri Dosyası
+      - file: "content/iletisim-bilgileri.json"
+        label: "İletişim Bilgileri"
+        name: "iletisim"
+        fields:
+          - {label: "Adres", name: "adres", widget: "string"}
+          - {label: "Telefon", name: "telefon", widget: "string"}
+          - {label: "E-posta", name: "email", widget: "string"}
+          - {label: "Çalışma Saatleri", name: "saatler", widget: "text"}
+
+      # Hakkımızda Sayfası Dosyası
+      - file: "content/hakkimizda-sayfasi.md"
+        label: "Hakkımızda Sayfası Metni"
+        name: "hakkimizda"
+        fields:
+          - {label: "Misyon Başlığı", name: "misyon_baslik", widget: "string", default: "Misyonumuz"}
+          - {label: "Misyon Metni", name: "misyon_metni", widget: "text"}
+          - {label: "Vizyon Başlığı", name: "vizyon_baslik", widget: "string", default: "Vizyonumuz"}
+          - {label: "Vizyon Metni", name: "vizyon_metni", widget: "text"}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makale Yükleniyor...</title> <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        </header>
+
+    <section class="page-header" id="makale-basligi-alani">
+        </section>
+
+    <section class="blog-post-content content-section">
+        <div class="container blog-container" id="makale-icerigi">
+            </div>
+    </section>
+
+    <footer class="footer-gelismis">
+        </footer>
+
+<script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const postSlug = params.get('post');
+
+            if (!postSlug) {
+                document.getElementById('makale-icerigi').innerHTML = '<h1>Makale bulunamadı.</h1>';
+                return;
+            }
+
+            // Test için sahte veritabanı (6 makale)
+            let makaleVerisi = {};
+
+            if (postSlug === 'kira-uyusmazliklari') {
+                makaleVerisi = {
+                    baslik: "Kira Uyuşmazlıklarında Zorunlu Arabuluculuk Şartı",
+                    tarih: "10 Mart 2024",
+                    kategori: "Kira Hukuku",
+                    icerik: "### Hangi Durumlarda Arabuluculuk Zorunludur?\n* Kira bedelinin tespiti davaları\n* Kira artış oranına ilişkin anlaşmazlıklar\n\n### Süreç Nasıl İşler?\nKiraya veren veya kiracı, uyuşmazlık yaşadığında öncelikle Adliyelerdeki arabuluculuk bürolarına başvurmalıdır."
+                };
+            } else if (postSlug === 'bosanma-mal-paylasimi') {
+                makaleVerisi = {
+                    baslik: "Boşanma Davalarında Mal Paylaşımı Esasları",
+                    tarih: "28 Şubat 2024",
+                    kategori: "Aile Hukuku",
+                    icerik: "### Kişisel Mal Nedir, Paylaşıma Girer mi?\nKişisel mallar paylaşıma dahil edilmez. Kişisel mallar şunlardır:\n* Eşlerden birinin evlilik öncesi sahip olduğu mallar.\n* Miras yoluyla elde edilen mallar."
+                };
+            } else if (postSlug === 'is-hukuku-haksiz-fesih') {
+                makaleVerisi = {
+                    baslik: "İş Hukukunda Haksız Fesih ve Tazminat Hakları",
+                    tarih: "15 Şubat 2024",
+                    kategori: "İş Hukuku",
+                    icerik: "### Haksız Fesih Nedir?\nİş sözleşmesinin, kanunda belirtilen haklı nedenler olmaksızın işveren tarafından sonlandırılmasıdır.\n\n### İşçinin Hakları Nelerdir?\n* Kıdem Tazminatı\n* İhbar Tazminatı\n* İşe İade Davası Açma Hakkı"
+                };
+            } 
+            // YENİ EKLENEN 3 MAKALE
+            else if (postSlug === 'tuketici-haklari') {
+                makaleVerisi = {
+                    baslik: "Tüketici Hakları: Ayıplı Mal ve Hizmet Durumunda Ne Yapmalı?",
+                    tarih: "01 Şubat 2024",
+                    kategori: "Tüketici Hukuku",
+                    icerik: "### Ayıplı Mal Nedir?\nAyıplı mal, tüketiciye vaat edilen özelliklere sahip olmayan maldır. \n\n### Haklarınız Nelerdir?\n* Ürünün iadesi\n* Ürünün değişimi\n* Ayıp oranında indirim"
+                };
+            } else if (postSlug === 'siber-suclar') {
+                makaleVerisi = {
+                    baslik: "Siber Suçlar ve Bilişim Hukuku: Online Tehditlere Karşı Koruma",
+                    tarih: "20 Ocak 2024",
+                    kategori: "Bilişim Hukuku",
+                    icerik: "### Siber Zorbalık Nedir?\nDijital platformlar aracılığıyla yapılan tehdit ve tacizlerdir.\n\n### Yasal Yollar\n* Savcılığa suç duyurusunda bulunma\n* Erişimin engellenmesini talep etme"
+                };
+            } else if (postSlug === 'miras-reddi') {
+                makaleVerisi = {
+                    baslik: "Miras Hukukunda Reddi Miras ve Mirasçılık Belgesi",
+                    tarih: "05 Ocak 2024",
+                    kategori: "Miras Hukuku",
+                    icerik: "### Reddi Miras Nedir?\nYasal veya atanmış mirasçıların, mirasbırakanın mirasını reddetmesidir.\n\n### Süreç Nasıl İşler?\nReddi miras, 3 ay içinde Sulh Hukuk Mahkemesi'ne yapılacak bir beyan ile gerçekleştirilir."
+                };
+            }
+            // Hata durumu
+            else {
+                 makaleVerisi = {
+                    baslik: "Makale Bulunamadı",
+                    tarih: "-",
+                    kategori: "-",
+                    icerik: "Aradığınız makale bulunamadı veya henüz yazılmadı."
+                };
+            }
+
+           // 3. Veriyi HTML'e yerleştir (HATA DÜZELTİLDİ)
+            document.title = makaleVerisi.baslik + " - Av. Savaş Coşkun";
+            const baslikAlani = document.getElementById('makale-basligi-alani');
+            
+            // HATA DÜZELTİLDİ: Başlığı, tarihi ve kategoriyi basan doğru kod:
+            baslikAlani.innerHTML = `
+                <div class="container">
+                    <h1>${makaleVerisi.baslik}</h1>
+                    <p class="blog-post-meta">
+                        <span class="meta-item"><i class="fas fa-calendar-alt"></i> ${makaleVerisi.tarih}</span>
+                        <span class="meta-item"><i class="fas fa-folder-open"></i> ${makaleVerisi.kategori}</span>
+                    </p>
+                </div>
+            `;
+            
+            const icerikAlani = document.getElementById('makale-icerigi');
+            icerikAlani.innerHTML = marked.parse(makaleVerisi.icerik);
+        });
+    </script>
+</body>
+</html>

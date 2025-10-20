@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Avukat Savaş Coşkun</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="index.html">AVUKAT <strong>SAVAŞ COŞKUN</strong></a>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    
+                    <li class="nav-item-dropdown">
+                        <a href="hizmetlerimiz.html">Hizmetlerimiz <span class="dropdown-icon">▼</span></a>
+                        
+                        <ul class="dropdown-menu">
+                            <li><a href="hizmetlerimiz.html#aile">Aile Hukuku</a></li>
+                            <li><a href="hizmetlerimiz.html#ceza">Ceza Hukuku</a></li>
+                            <li><a href="hizmetlerimiz.html#ticaret">Ticaret Hukuku</a></li>
+                            <li><a href="hizmetlerimiz.html#bilisim">Bilişim Hukuku</a></li>
+                            <li><a href="hizmetlerimiz.html#is">İş Hukuku</a></li>
+                            <li><a href="hizmetlerimiz.html#icra">İcra & İflas Hukuku</a></li>
+                            <li><a href="hizmetlerimiz.html#miras">Miras Hukuku</a></li>
+                            <li><a href="hizmetlerimiz.html#kira">Kira Hukuku</a></li>
+                            <li><a href="hizmetlerimiz.html#sigorta">Sigorta Hukuku</a></li>
+                            <li><a href="hizmetlerimiz.html#marka">Marka ve Patent Hukuku</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    
+                    <li class="active"><a href="iletisim.html">İletişim</a></li> 
+                </ul>
+            </nav>
+            <a href="iletisim.html" class="cta-button">İLETİŞİME GEÇİN</a>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>İletişim</h1>
+            <p>Bize Ulaşın</p>
+        </div>
+    </section>
+
+    <section id="contact-page" class="content-section bg-light">
+        <div class="container">
+            
+            <div class="section-subtitle" style="text-align: center; max-width: 700px; margin-bottom: 60px;">
+                Hukuki sorularınız, danışmanlık talepleriniz veya randevu almak için aşağıdaki formu doldurabilir veya iletişim bilgilerimizden bize ulaşabilirsiniz.
+            </div>
+
+            <div class="contact-layout">
+                
+                <div class="contact-form-wrapper">
+                    <h3>Mesaj Gönderin</h3>
+                    
+                    <form id="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Adınız Soyadınız *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta Adresiniz *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Konu *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesajınız *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button">Formu Gönder</button>
+                    </form>
+                </div>
+
+                <div class="contact-details-wrapper">
+                    <h3>İletişim Bilgileri</h3>
+                    <ul class="contact-info-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Adres</strong>
+                                <p>[Buraya Savaş Bey'in tam adresi eklenecek, Örn: Adalet Mah. Manas Blv. Folkart Towers B Kulesi No: 47/B Kat: 30 D: 3001 Bayraklı/İzmir]</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Telefon</strong>
+                                <p>[Buraya Savaş Bey'in telefonu eklenecek, Örn: +90 (555) 123 45 67]</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>E-posta</strong>
+                                <p>[Buraya Savaş Bey'in e-posta adresi eklenecek, Örn: info@savaskoskun.av.tr]</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Çalışma Saatleri</strong>
+                                <p>Hafta İçi: 09:00 - 18:00<br>Cumartesi: 09:00 - 13:00</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3>Konum</h3>
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50014.28825126866!2d27.09848279822765!3d38.42177579177817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbd862a762cacd%3A0x628e4e6c28f64295!2zW1BsYWNlaG9sZGVyXSBJem1pciwgS29uYWsvxLB6bWly!5e0!3m2!1str!2str!4v1697710892953!5m2!1str!2str" 
+                            width="100%" 
+                            height="350" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-gelismis">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col">
+                    <div class="logo">
+                        <a href="index.html">AVUKAT <strong>SAVAŞ COŞKUN</strong></a>
+                    </div>
+                    <p class="footer-hakkinda">
+                        Müvekkillerimize ulusal ve uluslararası alanda, şeffaf ve çözüm odaklı hukuki danışmanlık hizmeti sunmaktayız.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>İletişime Geçin</h4>
+                    <ul class="footer-contact">
+                        <li><strong>Adres:</strong> [Buraya Savaş Bey'in adresi eklenecek]</li>
+                        <li><strong>Telefon:</strong> [Buraya telefon numarası eklenecek]</li>
+                        <li><strong>E-posta:</strong> [Buraya e-posta adresi eklenecek]</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <p>&copy; 2025 Avukat Savaş Coşkun. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
